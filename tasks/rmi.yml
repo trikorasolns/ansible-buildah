@@ -1,0 +1,6 @@
+---
+- name: Ejecute buildah rmi
+  command: "buildah rmi {{ image_name }} "
+  become: yes
+  register: buildah_rmi
+...

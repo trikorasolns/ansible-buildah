@@ -1,0 +1,6 @@
+---
+- name: Copy Application to {{ container_name }}
+  command: "buildah copy {{ container_name }} {{ buildah_from_file }}  {{ buildah_to_file }}"
+  become: yes
+  register: buildah_copy
+...

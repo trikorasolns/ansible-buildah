@@ -1,0 +1,7 @@
+---
+- name: Ejecute buildah rm
+  command: "buildah rm {{ container_name }}"
+  ignore_errors: yes
+  become: yes
+  register: buildah_rm
+...

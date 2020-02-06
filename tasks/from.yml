@@ -1,0 +1,6 @@
+---
+- name: Fetch base image and create a container out of it
+  command: "buildah from --name {{ container_name }} {{ from_url }}"
+  become: yes
+  register: buildah_from
+...

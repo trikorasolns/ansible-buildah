@@ -1,0 +1,6 @@
+---
+- name: Configure container
+  command: "buildah config {{ buildah_configuration }} {{ container_name }}"
+  become: yes
+  register: buildah_config
+...

@@ -1,0 +1,7 @@
+---
+- name: Check if the image already exists
+  command: "buildah inspect {{ image_name }}"
+  become: yes
+  register: buildah_inspect
+  ignore_errors: yes
+...

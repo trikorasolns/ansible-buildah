@@ -1,0 +1,6 @@
+---
+- name: Buildah run {{ buildah_run }}
+  command: "buildah run {{ container_name }} {{ buildah_script }}"
+  become: yes
+  register: buildah_run
+...
