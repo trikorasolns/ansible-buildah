@@ -1,7 +1,6 @@
 ---
 - name:  Commit container as local image
   command: "buildah commit {{ container_name }} {{ image_name }}"
-  when: image_inspect is not defined or image_inspect.rc != 0
   become: yes
   register: buildah_commit
 ...
