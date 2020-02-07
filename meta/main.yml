@@ -1,6 +1,6 @@
 galaxy_info:
   author: A. C.
-  description: Enterprise Asset Management and Service Desk consultant. IaC evangelist.
+  description: Executes buildah statements for building container images.
   company: Trikora Solutions SL
 
   # If the issue tracker for your role is not on github, uncomment the
