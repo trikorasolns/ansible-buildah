@@ -1,0 +1,11 @@
+---
+- name: Check if the image/container already exist
+  command: "buildah inspect {{ image_name }}"
+  become: yes
+  register: buildah_exists_res
+  changed_when: "False"
+  failed_when: "buildah_exists_res.stdout is not defined or (buildah_exists_res.rc != 0 and 'image not known' not in buildah_exists_res.stderr )"
+- name: Fill exists
+  set_fact:
+    buildah_exists: "{{ buildah_exists_res.rc == 0 }}"
+...
