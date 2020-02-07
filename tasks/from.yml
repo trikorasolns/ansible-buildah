@@ -4,7 +4,8 @@
   become: yes
   register: buildah_from_res
   changed_when: "buildah_from_res.rc == 0"
-  faile_when: "buildah_from_res.rc == 1 and 'is already in use by' not in buildah_from_res.stderr"
+  failed_when: "buildah_from_res.rc == 1 and 'is already in use by' not in buildah_from_res.stderr"
+
 - name: Set buildah from result
   set_fact:
     buildah_from: "{{ buildah_from_res.stdout }}"
