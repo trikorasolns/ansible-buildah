@@ -3,5 +3,9 @@
   command: "buildah rm {{ container_name }}"
   ignore_errors: yes
   become: yes
-  register: buildah_rm
+  register: buildah_rm_res
+  changed_when: "buildah_rm_res.rc == 0"
+- name: Set buildah rm result
+  set_fact:
+    buildah_rm: "{{ buildah_rm_res.rc == 0 }}"
 ...
