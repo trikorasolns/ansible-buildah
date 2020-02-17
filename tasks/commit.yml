@@ -2,5 +2,11 @@
 - name:  Commit container as local image
   command: "buildah commit {{ container_name }} {{ image_name }}"
   become: yes
-  register: buildah_commit
+  register: buildah_commit_res
+  changed_when: "buildah_commit_res.rc is defined and buildah_commit_res.rc == 0"
+
+- name: Fill buildah_commit
+  set_fact:
+    buildah_commit: "{{ buildah_commit_res.stdout }}"
+
 ...

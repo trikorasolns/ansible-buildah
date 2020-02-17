@@ -2,5 +2,11 @@
 - name: Copy Application to {{ container_name }}
   command: "buildah copy {{ container_name }} {{ buildah_from_file }}  {{ buildah_to_file }}"
   become: yes
-  register: buildah_copy
+  register: buildah_copy_res
+  changed_when: "buildah_copy_res.rc is defined and buildah_copy_res.rc == 0"
+
+- name: Fill buildah_copy
+  set_fact:
+    buildah_copy: "{{ buildah_copy_res.stdout }}"
+
 ...
